@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container">
+    <div class="row">
+   
+        <div class="col-md-10 col-xs-10 col-sm-10" style="padding-top: 60px;">
+            <h3 class="round3" style="text-align:center;">ระบบตรวจสอบบุคคลเดินทางเข้าจังหวัดสงขลา </h3>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-2 col-xs-1 col-sm-1">
+            <br />
+            <table style="width:10%;">
+                <tr>
+                    <td>
+                        <a href="{% url 'create' %}" style="float: left;" class="btn btn-success">
+                            <span class="glyphicon glyphicon-plus">เพิ่มข้อมูลใหม่</span>
+                    </a>
+                    </td>
+                    <td>
+                        <a href="{% url 'search' %}" style="float: left;" class="btn btn-info">          
+                            <span class="glyphicon glyphicon-plus">ค้นหาข้อมูล</span>            
+                        </a>
+                    </td>
+                </tr>
+            </table>
+            
+           
+        </div>
+    </div>
+    <br />
+
+
+    <table class="table" border="1">
+        <tr style="text-align: center;height: 40px;background-color:#1E90FF;" >
+            <th style="width:5%;">ลำดับ</th>
+            <th style="width:10%;">citizen_id</th>
+            <th style="width:20%;">ชื่อ-สกุล</th>
+            <th style="width:5%;">เพศ</th>
+            <th style="width:30%;">ต้นทาง</th>
+            <th style="width:30%;">ปลายทาง</th>
+            <th></th>
+        </tr>
+        {% for citizen in citizens_list %}
+        <tr>
+            <td> {{ citizen.id }} </td>
+            <td> {{ citizen.citizen_id }} </td>
+            <td> {{ citizen.firstName }}  {{ citizen.lastName }}  </td>
+            <td> {{ citizen.sex }} </td>
+            <td> {{ citizen.origin_tambon }} {{ citizen.origin_distrinct }} {{ citizen.origin_province }}  </td>
+            <td> {{ citizen.destination_tambon }} {{ citizen.destination_distrinct }} {{ citizen.destination_province }}  </td>
+            <td>
+                <a href="{% url 'detail' citizen.pk %}" target="_blank">
+                    <button type="button" class="btn btn-info">
+                        Detail
+                    </button>
+                </a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+
+
+</div>
+{% endblock %}

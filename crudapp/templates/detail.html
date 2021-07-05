@@ -1,0 +1,181 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+<div class="container" >
+    <div class="row" style="top: 30%;">
+        
+
+        <div class="inner">
+
+          <div class="inner_herder">
+            <div class="form-group"> <b> ข้อมูลทั่วไป :</b></div>
+
+          </div>
+
+          <div class="form-row">
+            <div class="form-group col-md-12 col-lg-12">
+              <label>รูปภาพ </label>
+              <div style="height:auto;width:40%;border: 1px dotted gray;padding: 1em;">
+                {{citizens.citizen_img}}
+                <img src="{{MEDIA_URL}}/{{citizens.citizen_img}}" style="width:100%;height:250px;" />
+            </div>
+            </div>
+          </div>
+
+          <div class="form-row">
+          <div class="form-group col-md-12 col-lg-12">
+            <label><b>หมายเลขบัตรประชาชน / passport</b></label>
+            <div class="detail_lable">
+                <label>{{citizens.citizen_id}}</label>
+            </div>
+          </div>
+          </div>
+
+
+          
+
+
+          <div class="form-row">
+            <div class="form-group col-md-4 col-lg-4">
+              <label><b>คำนำหน้าชื่อ</b></label>
+              <div class="detail_lable">
+                <label>{{citizens.preName}}</label>
+              </div>
+            </div>
+            <div class="form-group col-md-4 col-lg-4">
+              <label><b>ชื่อ</b></label>
+              <div class="detail_lable">
+                <label>{{citizens.firstName}}</label>
+             </div>
+            </div>
+            <div class="form-group col-md-4 col-lg-4">
+              <label><b>นามสกุล</b></label>
+              <div class="detail_lable">
+                <label>{{citizens.lastName}}</label>
+              </div>
+            </div>
+          </div>
+
+         
+
+          <div class="form-row">
+            <div class="form-group col-md-12 col-lg-12">
+              <label><b>เพศ</b></label>
+              <br>
+              <div class="detail_lable">
+                <label>{{citizens.sex}}</label>
+             </div>             
+          </div>
+        </div>
+    
+        <div class="form-row">
+            <div class="form-group col-md-12 col-lg-12">
+              <label>ประเทศ</label>
+              <br>
+              <div class="detail_lable">
+                <label>{{citizens.country}}</label>
+             </div>             
+          </div>
+        </div>
+ 
+      <div class="form-row">
+          <div class="form-group col-md-12 col-lg-12">
+            <label><b>เบอร์โทรศัพท์</b></label>
+            <div class="detail_lable">
+                <label>{{citizens.phone}}</label>
+            </div>
+          </div>
+       </div>
+
+        </div> 
+      
+       
+
+        <div class="inner">
+          <div class="inner_herder">
+            <div class="form-group"> <b> ประวัติการเดินทาง :</b></div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-12 col-lg-12 col-sm-12">
+             <label><b>วันที่เดินทาง</b></label>
+             <div class="detail_lable">
+                <label>{{citizens.dates_at}}</label>
+            </div>
+            </div>
+          </div>
+
+
+          <div class="form-row">
+            <div class="form-group col-md-12 col-lg-12 col-sm-12">
+             <label><b>ยานภาหนะที่ใข้เดินทาง</b></label>
+             <div class="detail_lable">
+                <label>{{citizens.vehicle}}</label>
+            </div>
+           </div>
+          </div>
+
+
+        
+
+            <div style="padding:2em;top:10%;height:60px;width:100%;margin-bottom:30px;">
+            <label><u>ข้อมูลต้นทาง :</u></label>
+            </div>
+
+             <div class="form-row">
+               <div class="form-group col-md-4 col-lg-4">
+                 <label><b>ตำบลต้นทาง</b></label>
+                 <div class="detail_lable">
+                    <label>{{citizens.origin_tambon}}</label>
+                </div>
+               </div>
+               <div class="form-group col-md-4 col-lg-4">
+                 <label><b>อำเภอต้นทาง / original city</b></label>
+                 <div class="detail_lable">
+                    <label>{{citizens.origin_distrinct}}</label>
+                </div>
+               </div>
+               <div class="form-group col-md-4 col-lg-4">
+                 <label><b>จังหวัดต้นทาง / original province</b></label>
+                 <div class="detail_lable">
+                    <label>{{citizens.origin_province}}</label>
+                </div>
+               </div>
+             </div>
+
+     
+
+              <div style="padding:2em;top:10%;height:60px;width:100%;margin-bottom:30px;">
+                <label><u>ข้อมูลปลายทาง :</u></label>
+              </div> 
+
+              <div class="form-row">
+                <div class="form-group col-md-4 col-lg-4">
+                  <label><b>ตำบลปลายทาง</b></label>
+                  <div class="detail_lable">
+                    <label>{{citizens.destination_tambon}}</label>
+                </div>
+                </div>
+                <div class="form-group col-md-4 col-lg-4">
+                  <label><b>อำเภอปลายทาง / destination city</b></label>
+                  <div class="detail_lable">
+                    <label>{{citizens.destination_distrinct}}</label>
+                </div>
+                </div>
+                <div class="form-group col-md-4 col-lg-4">
+                  <label><b>จังหวัดปลายทาง / destination province</b></label>
+                  <div class="detail_lable">
+                    <label>{{citizens.destination_province}}</label>
+                </div>
+                </div>
+              </div>
+
+        </div>
+      
+
+    </div>
+</div>
+{% endblock %}
+
+
+

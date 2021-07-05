@@ -1,0 +1,177 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+<div class="container" >
+    <div class="row" style="top: 30%;">
+        
+      <form method="POST" style="width:100%;" action="/citizen/create/"  enctype="multipart/form-data">  
+        {% csrf_token %}  
+      
+        {{ form.non_field_errors}}
+
+        <div class="inner">
+
+          <div class="inner_herder">
+            <div class="form-group"> <b> ข้อมูลทั่วไป :</b></div>
+
+          </div>
+
+          <div class="form-row">
+          <div class="form-group col-md-12 col-lg-12">
+            <label>หมายเลขบัตรประชาชน / passport</label>
+            {{form.citizen_id}}
+          </div>
+          </div>
+
+
+          <div class="form-row">
+            <div class="form-group col-md-4 col-lg-4">
+              <label>คำนำหน้าชื่อ </label>
+              <select name="preName" id="preName" class="form-control">
+                <option value="นาย">นาย</option>
+                <option value="นาง">นาง</option>
+                <option value="นางสาว">นางสาว</option>
+                <option value="Mr">Mr</option>
+                <option value="Ms">Ms</option>
+                <option value="Mrs">Mrs</option>
+          </select>
+            </div>
+            <div class="form-group col-md-4 col-lg-4">
+              <label>ชื่อ </label>
+              {{form.firstName}}
+            </div>
+            <div class="form-group col-md-4 col-lg-4">
+              <label>นามสกุล </label>
+              {{form.lastName}}
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group col-md-12 col-lg-12" style="height: 70px;width: 100%;border: 1px dotted gray;padding: 1em;">
+              <label>รูปภาพ </label>
+              {{form.citizen_img}}
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group col-md-12 col-lg-12">
+              <label>เพศ</label>
+              <br>
+              <select name="sex" id="sex" class="form-control">
+                <option value="หญิง">หญิง</option>
+                <option value="ชาย">ชาย</option>
+               </select>            
+                      
+          </div>
+        </div>
+  
+ 
+      <div class="form-row">
+          <div class="form-group col-md-12 col-lg-12">
+            <label>เบอร์โทรศัพท์ </label>
+            {{form.phone}}
+          </div>
+        </div>
+
+        </div> 
+      
+       
+
+        <div class="inner">
+          <div class="inner_herder">
+            <div class="form-group"> <b> ประวัติการเดินทาง :</b></div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-12 col-lg-12 col-sm-12">
+             <label>วันที่เดินทาง </label>
+             <input type="datetime-local" style="height:40px;" value="2011-12-21T11:33:23Z" id="dates_at" name="dates_at">
+            </div>
+          </div>
+
+
+          <div class="form-row">
+            <div class="form-group col-md-12 col-lg-12 col-sm-12">
+             <label>ยานพาหนะที่ใข้เดินทาง </label>
+             <select name="vehicle" id="vehicle" class="form-control">
+              <option value="รถยนต์">รถยนต์</option>
+              <option value="รถมอเตอร์ไซค์">รถมอเตอร์ไซค์</option>
+              <option value="รถโดยสาร">รถโดย</option>
+              <option value="เครื่องบิน">เครื่องบิน</option>
+              <option value="รถไฟ">รถไฟ</option>
+        </select>          
+           </div>
+          </div>
+
+
+          <div class="form-row">
+            <div class="form-group col-md-12 col-lg-12">
+              <label>สถานะ</label>
+              <br>
+              <input type="radio" id="is_foreigner" value="ไทย" > <span style="margin-right:30px;">ไทย</span>
+              <input type="radio" value="is_foreigner" > <span>ต่างชาติ</span>         
+          </div>
+          </div>
+            
+          <div class="form-row">
+            <div class="form-group col-md-12 col-lg-12">
+              <label>ประเทศ</label>
+              <br>
+              {{form.country}}       
+          </div>
+          </div>
+
+
+            <div style="padding:2em;top:10%;height:60px;width:100%;margin-bottom:30px;">
+            <label><u>ข้อมูลต้นทาง :</u></label>
+            </div>
+
+             <div class="form-row">
+               <div class="form-group col-md-4 col-lg-4">
+                 <label>ตำบลต้นทาง</label>
+                 {{form.origin_tambon}}
+               </div>
+               <div class="form-group col-md-4 col-lg-4">
+                 <label>อำเภอต้นทาง / original city</label>
+                 {{form.origin_distrinct}}
+               </div>
+               <div class="form-group col-md-4 col-lg-4">
+                 <label>จังหวัดต้นทาง / original province</label>
+                 {{form.origin_province}}
+               </div>
+             </div>
+
+     
+
+              <div style="padding:2em;top:10%;height:60px;width:100%;margin-bottom:30px;">
+                <label><u>ข้อมูลปลายทาง :</u></label>
+              </div> 
+
+              <div class="form-row">
+                <div class="form-group col-md-4 col-lg-4">
+                  <label>ตำบลปลายทาง</label>
+                  {{form.destination_tambon}}
+                </div>
+                <div class="form-group col-md-4 col-lg-4">
+                  <label>อำเภอปลายทาง / destination city</label>
+                  {{form.destination_distrinct}}
+                </div>
+                <div class="form-group col-md-4 col-lg-4">
+                  <label>จังหวัดปลายทาง / destination province</label>
+                  {{form.destination_province}}
+                </div>
+              </div>
+<div style="width:100%;padding:1em;height:70px;margin-bottom:100px;margin-top:50px;">
+  <center>
+  <input type="submit" class="btn btn-primary" value="บันทึก" style="width:250px;">
+</center>
+</div>
+        </div>
+      
+      </form>
+    </div>
+</div>
+{% endblock %}
+
+
+
