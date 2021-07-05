@@ -4,11 +4,15 @@ from .forms import CitizenForm
 from django.views.generic import ListView, DetailView
 from django.contrib.postgres.search import SearchVector
 from datetime import date
+from django.contrib.auth.models import User
 
+def show(request): 
+    if User.is_authenticated: 
+        citizens = citizen.objects.all()  
+        return render(request,"index.html",{'citizens_list':citizens})  
+    else:
+      return redirect('/login') 
 
-def show(request):  
-    citizens = citizen.objects.all()  
-    return render(request,"index.html",{'citizens_list':citizens})  
 def create(request):  
     if request.method == "POST":  
         form = CitizenForm(request.POST,request.FILES)  

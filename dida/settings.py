@@ -73,18 +73,18 @@ MEDIA_URL = 'media/'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-#DATABASES = {
-#    'default': {
-#        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-#        'NAME': 'dida', 
-#        'USER': 'postgres', 
-#        'PASSWORD': '1234',
-#        'HOST': '127.0.0.1', 
-#        'PORT': '5432',
-#    }
-#}
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'dida', 
+        'USER': 'postgres', 
+        'PASSWORD': '1234',
+        'HOST': '127.0.0.1', 
+        'PORT': '5432',
+    }
+}
 
-DATABASES = { 'default': dj_database_url.config(conn_max_age=500) }
+#DATABASES = { 'default': dj_database_url.config(conn_max_age=500) }
 
 AUTH_PASSWORD_VALIDATORS = [
     {
